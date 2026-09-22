@@ -1,0 +1,19 @@
+Estudiante: Dávalos Alvarez Nicolás Darko
+
+Dataset registrado: BirdSet, configuración HSN (High Sierras)
+
+Fuente:
+https://huggingface.co/datasets/DBD-research-group/BirdSet
+
+Carga:
+
+from datasets import load_dataset, Audio
+dataset = load_dataset("DBD-research-group/BirdSet", "HSN", trust_remote_code=True)
+dataset = dataset.cast_column("audio", Audio(sampling_rate=32_000))
+
+El cuaderno usa el split train. Cada grabación tiene una especie en ebird_code (21 clases). Se toman como máximo 25 audios por clase y los primeros 5 segundos.
+
+Artículo:
+https://arxiv.org/abs/2403.10380
+
+Licencia: uso de investigación y educación, no comercial. Las grabaciones de entrenamiento vienen de Xeno-Canto con licencia propia (se excluyen las CC-ND).
